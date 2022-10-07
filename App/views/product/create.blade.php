@@ -3,7 +3,7 @@
 
 @section('title','thêm sản phẩm')
 
-@section('content-title','Thêm Sản Phẩm')
+@section('content-title','Thêm Sản Phẩm ')
 
 @section('content')
 <form action="index.php?url=product/insert" method="post">
