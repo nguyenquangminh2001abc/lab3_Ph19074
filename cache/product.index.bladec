@@ -1,0 +1,45 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title','sản phẩm'); ?>
+
+<?php $this->startSection('content-title','danh sách sản phẩm'); ?>
+
+<?php $this->startSection('content'); ?>
+
+<a class="btn btn-outline-success" href='?url=product/create'>tạo mới</a>
+
+<table class="table mt-2">
+
+ <thead>
+ <tr>
+ <th>id</th>
+ <th>Tên sản phẩm</th>
+ <th>giá</th>
+ <th>color</th>
+ <th>Số Lượng</th>
+ <th>Ảnh</th>
+ <th>Chi Tiết</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $__currentLoopData = $product; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $product): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <td><?php echo \htmlentities($product['id']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($product['name']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($product['price']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($product['color']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($product['quantity']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><img src="<?php echo \htmlentities($product['image']??'', ENT_QUOTES, 'UTF-8', false); ?>" width="70" height="70" alt=""></td>
+ <td><a href="?url=product/details&&id_pro=<?php echo \htmlentities($product['id']??'', ENT_QUOTES, 'UTF-8', false); ?>">chi tiết</a></td>
+ 
+ </tr>
+<?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+</tbody>
+</table>
+<?php $this->stopSection(); ?> 
+
+ 
+
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.master'); } ?>
